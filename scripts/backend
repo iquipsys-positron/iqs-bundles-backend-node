@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Note runlevel 2345, 86 is the Start order and 85 is the Stop order
+#
+# chkconfig: 2345 86 85
+# description: Description of the Service
+#
+# Below is the source function library, leave it be
+. /etc/init.d/functions
+
+# result of whereis forever or whereis node
+export PATH=$PATH:/usr/local/bin  
+# result of whereis node_modules
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
+
+start(){  
+        forever start --uid iqs-bundles-backend --sourceDir=/home/ec2-user/iqs-bundles-backend-node -a bin/run.js
+}
+
+stop(){  
+        forever stop iqs-bundles-backend
+}
+
+restart(){  
+        forever restart iqs-bundles-backend
+}
+
+case "$1" in  
+        start)
+                echo "Start service iqs-bundles-backend"
+                start
+                ;;
+        stop)
+                echo "Stop service iqs-bundles-backend"
+                stop
+                ;;
+        restart)
+                echo "Restart service iqs-bundles-backend"
+                restart
+                ;;
+        *)
+                echo "Usage: $0 {start|stop|restart}"
+                exit 1
+                ;;
+esac 
