@@ -8,4 +8,5 @@
 /tasks
 /docker/id_rsa*
 /docker/docker-compose.*
+!/docker/docker-compose.yml
 !/docker/docker-compose.test.yml

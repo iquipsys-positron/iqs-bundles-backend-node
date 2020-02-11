@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+  iqs-backend:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.local
+    # image: ${IMAGE:-pipdevs/test}
+    depends_on:
+      - iqs-backend-mongo
+      - iqs-backend-memcached
+      - iqs-backend-mosquitto
+    environment:
+      - MONGO_SERVICE_HOST=iqs-backend-mongo
+      - MONGO_SERVICE_PORT=27017
+      - MONGO_DB=tracker
+      - MQTT_SERVICE_HOST=iqs-backend-mosquitto
+      - MQTT_SERVICE_PORT=1883
+      - MEMCACHED_HOST=iqs-backend-memcached
+      - MEMCACHED_PORT=11211
+      - SERVER_URL=http://localhost:8080
+      - AWS_ACCESS_ID=
+      - AWS_ACCESS_KEY=
+      - AWS_BLOBS_ARN=
+    ports: 
+      - "8080:8080"
+
+  iqs-backend-mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  iqs-backend-memcached:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+
+  iqs-backend-mosquitto:
+    image: toke/mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
