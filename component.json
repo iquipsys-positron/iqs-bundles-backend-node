@@ -1,6 +1,6 @@
 {
-  "name": "iqs-bundles-backend-node",
-  "registry": "registry.gitlab.com/iqs-services",
+  "name": "iqs-facade-monolith-node",
+  "registry": "pipdevs",
   "version": "1.0.0",
-  "build": 203
+  "build": 1
 }

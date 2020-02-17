@@ -26,18 +26,18 @@ if ($env:DOCKER_IP -ne $null) {
     $dockerMachineIp = "localhost"
 }
 
-try {
-    # Workaround to remove dangling images
-    docker-compose -f ./docker/docker-compose.local.yml down
+# try {
+#     # Workaround to remove dangling images
+#     docker-compose -f ./docker/docker-compose.local.yml down
 
-    docker-compose -f ./docker/docker-compose.local.yml up -d
+#     docker-compose -f ./docker/docker-compose.local.yml up -d
 
-    # Test using curl
-    #Start-Sleep -Seconds 10
-    #Invoke-RestMethod -Uri "http://$($dockerMachineIp):8080/api/v1/about" -Method "post"
+#     # Test using curl
+#     #Start-Sleep -Seconds 10
+#     #Invoke-RestMethod -Uri "http://$($dockerMachineIp):8080/api/v1/about" -Method "post"
 
-    #Write-Host "The container was successfully built."
-} finally {
-    # Workaround to remove dangling images
-    docker-compose -f ./docker/docker-compose.local.yml down
-}
+#     #Write-Host "The container was successfully built."
+# } finally {
+#     # Workaround to remove dangling images
+#     docker-compose -f ./docker/docker-compose.local.yml down
+# }

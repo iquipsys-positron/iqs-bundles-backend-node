@@ -33,8 +33,8 @@ RUN npm install
 # Copy the entire project
 COPY . .
 
-# Set default environment variables
-##
+# Remove git key
+RUN rm /root/.ssh/id_rsa*
 
 EXPOSE 8080
 
