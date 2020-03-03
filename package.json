@@ -35,6 +35,8 @@
     "pip-services3-aws-node": "^3.0.0",
     "pip-services3-rpc-node": "^3.0.0",
     "pip-services3-container-node": "^3.0.0",
+    "pip-services3-data-node": "^3.0.0",
+    "pip-services3-mongodb-node": "^3.0.0",    
     "iqs-services-agreements-node": "^1.0.0",
     "iqs-services-attendance-node": "^1.0.0",
     "pip-services-beacons-node": "^1.0.0",

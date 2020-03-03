@@ -38,4 +38,4 @@ RUN rm /root/.ssh/id_rsa*
 
 EXPOSE 8080
 
-CMD [ "node", "./bin/run.js", "-c", "./config/config-docker.yml" ]
+CMD [ "node", "./bin/run.js", "-c", "./config/config-docker-monolyth.yml" ]
